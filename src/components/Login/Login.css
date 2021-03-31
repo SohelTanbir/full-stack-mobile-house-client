@@ -1,0 +1,33 @@
+.loginBox{
+    width:80%;
+    margin:10% auto 5%;
+    border:1px solid gainsboro;
+}
+.inputBox{
+    width:100%;
+    margin-top: 30px;
+}
+.inputBox input{
+    width:100%;
+    border:none;
+    outline:none;
+    border-bottom:1px solid gainsboro;
+    margin-bottom: 30px;
+    padding:5px;
+}
+.loginWithGoogle{
+    width:80%;
+    margin: auto;
+}
+.orStyle{
+    text-align: center;
+    display: block;
+    margin-bottom:20px;
+}
+.googleLoginBtn{
+    width:80%;
+    margin:0 10%;
+    border: 1px solid gainsboro;
+    text-align: center;
+    border-radius: 30px;
+}

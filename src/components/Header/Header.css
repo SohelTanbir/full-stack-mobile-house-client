@@ -1,0 +1,21 @@
+.header{
+    background:#f3f3f3;
+}
+nav ul li{
+    margin-left:40px;
+}
+nav ul li a{
+    font-size:18px;
+    color:#000;
+}
+.logo a{
+    color:#000;
+    font-weight:700;
+    text-transform: uppercase;
+}
+.logo span{
+    color:red;
+}
+.loginBtn button a{
+    color:#fff;
+}
