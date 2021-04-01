@@ -24,13 +24,12 @@ const Login = () => {
                 // var credential = result.credential;
                 // var token = credential.accessToken;
                 const user = result.user;
-                const loggedUser = {name:user.displayName, email:user.email, photo:user.photoURL}
+                const loggedUser = {userName:user.displayName, email:user.email, userPhoto:user.photoURL}
                 setLoggedInUser(loggedUser);
                 history.push(from)
             }).catch((error) => {
                 const errorMessage = error.message;   
                 const email = error.email;
-                console.log(errorMessage, email)
         });
 }
 

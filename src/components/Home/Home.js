@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ProductCard from '../ProductCard/ProductCard';
 import './Home.css';
-import FakeData from '../../FakeData/FakeData';
+
 
 const Home = () => {
+    const [mobiles, setMobiles] = useState([]);
+    fetch('http://localhost:5000/mobiles')
+    .then(res => res.json())
+    .then(data => setMobiles(data))
+
+
     return (
         <div className="home">
            <div className="container">
@@ -18,7 +24,7 @@ const Home = () => {
                <div className="productArea">
                     <h5>New Products</h5>
                     {
-                        FakeData.map(product => <ProductCard product={product}/> )
+                        mobiles.map(product => <ProductCard product={product}/> )
                     }                
                 </div>
            </div>

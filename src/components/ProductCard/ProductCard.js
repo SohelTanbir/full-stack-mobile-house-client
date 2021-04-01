@@ -3,17 +3,19 @@ import { useHistory } from 'react-router';
 import './ProductCard.css'
 
 const ProductCard = (props) => {
-    const {name, price, img, id} = props.product;
+    const id = 1;
+    const {mobileName, mobilePrice, mobileImg, _id} = props.product;
     const history = useHistory();
-    const buyProduct = ()=>{
-        history.push('/checkout')
+    const buyProduct = id =>{
+       
+        history.push(`/checkout/${id}`)
     }
     return (
         <div className="card">
-            <img src={img} alt=""/>
+            <img src={mobileImg} alt=""/>
             <div className="productInfo d-flex justify-content-between p-2">
-            <h6>{name} (${price})</h6>
-            <button onClick={()=>buyProduct()} className="btn btn-success">Buy now</button>
+            <h6>{mobileName} (${mobilePrice})</h6>
+            <button onClick={()=>buyProduct(id)} className="btn btn-success">Buy now</button>
             </div>
         </div>
     );

@@ -1,0 +1,27 @@
+.sidebar{
+    padding:10px;
+    height:100vh;
+}
+.sidebar h5{
+    color:aliceblue;
+    margin-bottom:40px;
+}
+.sidebar h5 span{
+    color: red;
+}
+FontAwesomeIcon{
+    color: red;
+}
+ul li {
+    margin-bottom: 15px;
+    text-align: left;
+}
+ul li a{
+    color:#d4d4d4;
+   
+}
+ul li a:hover{
+    color: #81817f;
+    text-decoration: none;
+    font-weight:600;
+}
