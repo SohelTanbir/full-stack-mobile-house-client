@@ -1,15 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const MangeProduct = () => {
+    const [mobiles, setMobiles] = useState([]);
+    fetch('http://localhost:5000/mobiles')
+    .then(res => res.json())
+    .then(data => setMobiles(data));
+
+    // delete product from database
+    const deleteProduct = _id =>{
+        fetch(`/delete/${_id}`, {
+            method:'DELETE'
+        })
+        .then(res => res.json())
+        .then(result =>{
+            console.log(result)
+        })
+     }
     return (
        <div className="container">
            <div className="row mt-5">
                <div className="col-md-9 mx-auto ">
+               <div className="manageProduct d-flex justify-content-between">
                <h5>Manage Product</h5>
+               <h5>Total Product({mobiles.length})</h5>
+               </div>
                 <div className="manageProduct">
-                    <table className="table table-striped">
+                    <table className="table">
                        <thead>
                         <tr>
                                 <th>Mobile Name</th>
@@ -18,73 +36,25 @@ const MangeProduct = () => {
                                 <th>Action</th>
                             </tr>
                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>Symphony i120</td>
-                            <td>symphony</td>
-                            <td>$120</td>
-                            <td>
-                                <button className="btn btn-primary mr-3">
-                                <FontAwesomeIcon icon={faEdit}/>       
-                                </button>
-                                 <button className="btn btn-danger">
-                                 <FontAwesomeIcon icon={faTrash}/> 
-                                 </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Symphony i120</td>
-                            <td>symphony</td>
-                            <td>$120</td>
-                            <td>
-                                <button className="btn btn-primary mr-3">
-                                <FontAwesomeIcon icon={faEdit}/>       
-                                </button>
-                                 <button className="btn btn-danger">
-                                 <FontAwesomeIcon icon={faTrash}/>  
-                                 </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Symphony i120</td>
-                            <td>symphony</td>
-                            <td>$120</td>
-                            <td>
-                                <button className="btn btn-primary mr-3">
-                                <FontAwesomeIcon icon={faEdit}/>       
-                                </button>
-                                 <button className="btn btn-danger">
-                                 <FontAwesomeIcon icon={faTrash}/>  
-                                 </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Symphony i120</td>
-                            <td>symphony</td>
-                            <td>$120</td>
-                            <td>
-                                <button className="btn btn-primary mr-3">
-                                <FontAwesomeIcon icon={faEdit}/>       
-                                </button>
-                                 <button className="btn btn-danger">
-                                 <FontAwesomeIcon icon={faTrash}/>  
-                                 </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Symphony i120</td>
-                            <td>symphony</td>
-                            <td>$120</td>
-                            <td>
-                                <button className="btn btn-primary mr-3">
-                                <FontAwesomeIcon icon={faEdit}/>       
-                                </button>
-                                 <button className="btn btn-danger">
-                                 <FontAwesomeIcon icon={faTrash}/>  
-                                 </button>
-                            </td>
-                        </tr>
-                        </tbody>
+                       {
+                           mobiles.map(mobile => <tbody>
+    
+                            <tr>
+                                <td>{mobile.mobileName}</td>
+                                <td>{mobile.mobileBrand}</td>
+                                <td>${mobile.mobilePrice}</td>
+                                <td>
+                                    <button className="btn btn-primary mr-3">
+                                    <FontAwesomeIcon icon={faEdit}/>       
+                                    </button>
+                                     <button onClick={()=> deleteProduct(mobile._id)} className="btn btn-danger">
+                                     <FontAwesomeIcon icon={faTrash}/> 
+                                     </button>
+                                </td>
+                            </tr>
+                            </tbody>)
+                            
+                       }
                     </table>
                 </div>
                </div>

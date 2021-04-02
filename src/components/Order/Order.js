@@ -28,7 +28,7 @@ const Order = () => {
                            {
                                orders.map(order => <tbody>
                                 <tr>
-                                    <td>1</td>
+                                    <td>1++</td>
                                     <td>{order.mobileName}</td>
                                     <td>${order.mobilePrice}</td>
                                     <td>1</td>
