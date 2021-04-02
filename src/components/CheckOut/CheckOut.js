@@ -9,7 +9,7 @@ const CheckOut = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
     const {id} =  useParams();
     const [product, setProduct] = useState({});
-    fetch('http://localhost:5000/mobile/'+ id)
+    fetch('https://mobile-house.herokuapp.com/mobile/'+ id)
     .then(res => res.json())
     .then(checkOutProduct => setProduct(checkOutProduct));
     const {mobileName,mobilePrice, mobileBrand,mobileImg }= product;
@@ -19,7 +19,7 @@ const CheckOut = () => {
 
     const placedOrder = ()=>{
         const order = {...loggedInUser,mobileName,mobilePrice, mobileBrand,mobileImg, formateDate};
-        fetch('http://localhost:5000/placeOrder', {
+        fetch('https://mobile-house.herokuapp.com/placeOrder', {
             method:'POST',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify(order)

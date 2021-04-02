@@ -33,7 +33,7 @@ const AddProduct = () => {
         
     }
     const submitData = (event)=>{
-        const url = 'http://localhost:5000/addproduct';
+        const url = 'https://mobile-house.herokuapp.com/addproduct';
         fetch(url, {
             method:'POST',
             headers:{'content-type':'application/json'},

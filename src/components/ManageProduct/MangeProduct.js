@@ -4,7 +4,7 @@ import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const MangeProduct = () => {
     const [mobiles, setMobiles] = useState([]);
-    fetch('http://localhost:5000/mobiles')
+    fetch('https://mobile-house.herokuapp.com/mobiles')
     .then(res => res.json())
     .then(data => setMobiles(data));
 
