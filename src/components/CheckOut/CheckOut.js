@@ -1,17 +1,22 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useParams } from 'react-router';
 import { userContext } from '../../App';
 import './CheckOut.css'
-import FakeData  from '../../FakeData/FakeData';
-import img from '../../FakeData/img/iPhoneX-silver-1.jpg';
+
+
 
 const CheckOut = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(userContext)
+    const [loggedInUser, setLoggedInUser] = useContext(userContext);
     const {id} =  useParams();
-    const {name,img,price,brand} = (FakeData[id]);
+    const [product, setProduct] = useState({});
+    fetch('http://localhost:5000/mobile/'+ id)
+    .then(res => res.json())
+    .then(checkOutProduct => setProduct(checkOutProduct));
+    const {mobileName,mobilePrice, mobileBrand,mobileImg }= product;
+
     const date = new Date();
     const placedOrder = ()=>{
-        const order = {...loggedInUser, name, img, price, brand,date};
+        const order = {...loggedInUser,mobileName,mobilePrice, mobileBrand,mobileImg, date};
         fetch('http://localhost:5000/placeOrder', {
             method:'POST',
             headers:{'Content-Type':'application/json'},
@@ -30,7 +35,7 @@ const CheckOut = () => {
                <h5>CheckOut</h5>
                 <div className="row">
                     <div className="col-md-10 mx-auto text-center shadow p-2 pb-3 checkOutInfo">
-                        <img src={img} alt="img"/>
+                        <img src={mobileImg} alt="img"/>
                         <table className="table">
                             <tr>
                                 <th>Product Name</th>
@@ -40,11 +45,11 @@ const CheckOut = () => {
                                 <th>Total Price</th>
                             </tr>
                             <tr>
-                                <td>{name}</td>
-                                <td>${price}</td>
+                                <td>{mobileName}</td>
+                                <td>${mobilePrice}</td>
                                 <td>1</td>
-                                <td>{brand}</td>
-                                <td>${price}</td>
+                                <td>{mobileBrand}</td>
+                                <td>${mobilePrice}</td>
                             </tr>
                         </table>
                         <hr/>
