@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useParams } from 'react-router';
 import { userContext } from '../../App';
 import './CheckOut.css'
-
+import { format } from "date-fns";
 
 
 const CheckOut = () => {
@@ -14,9 +14,11 @@ const CheckOut = () => {
     .then(checkOutProduct => setProduct(checkOutProduct));
     const {mobileName,mobilePrice, mobileBrand,mobileImg }= product;
 
-    const date = new Date();
+    const createDate =  new Date();
+    const formateDate = format(createDate, 'dd/MM/yyy');
+
     const placedOrder = ()=>{
-        const order = {...loggedInUser,mobileName,mobilePrice, mobileBrand,mobileImg, date};
+        const order = {...loggedInUser,mobileName,mobilePrice, mobileBrand,mobileImg, formateDate};
         fetch('http://localhost:5000/placeOrder', {
             method:'POST',
             headers:{'Content-Type':'application/json'},
