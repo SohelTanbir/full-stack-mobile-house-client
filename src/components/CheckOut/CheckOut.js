@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import { userContext } from '../../App';
 import './CheckOut.css'
 import { format } from "date-fns";
+import { Spinner } from 'react-bootstrap';
 
 
 const CheckOut = () => {
@@ -38,6 +39,9 @@ const CheckOut = () => {
                 <div className="row">
                     <div className="col-md-10 mx-auto text-center shadow p-2 pb-3 checkOutInfo">
                         <img src={mobileImg} alt="img"/>
+                        {product.mobileImg?'':<div className="loader text-center">
+                        <Spinner animation="border" variant="primary" />
+                    </div>}
                         <table className="table">
                             <tr>
                                 <th>Product Name</th>

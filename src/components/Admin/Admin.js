@@ -6,15 +6,12 @@ import {  } from '@fortawesome/free-brands-svg-icons';
 import { Link } from 'react-router-dom';
 import MangeProduct from '../ManageProduct/MangeProduct';
 
-
-
-
 const Admin = () => {
     
     return (
        <div className="container-fluid">
            <div className="row">
-               <div className="col-md-2 bg-dark sidebar">
+               <div className="col-md-2 col-lg-3 bg-dark sidebar">
                    <h5 className="text-white"><FontAwesomeIcon icon={faUsersCog} style={{ color: "white" }}/> Mobile <span>House</span></h5>
                    <ul>
                        <li>
@@ -34,8 +31,11 @@ const Admin = () => {
                    </ul>
                </div>
                <div className="col-md-10">
-                   <h4>Add mobile</h4>
-                  
+                   
+                    <div className="dashboard text-center">
+                        <h1>Welcome to <span className="text-primary">Mobile</span> House</h1>
+                        <p>You can control your application from here.</p>
+                    </div>
                </div>
            </div>
        </div>

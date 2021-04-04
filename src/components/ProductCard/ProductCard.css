@@ -11,3 +11,13 @@
     height:300px;
     padding:5px;
 }
+@media all and (max-width:992px){
+    .card {
+        width: 48%;
+    }
+}
+@media all and (max-width:768px){
+    .card {
+        width: 100%;
+    }
+}
