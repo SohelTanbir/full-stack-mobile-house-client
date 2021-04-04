@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { Spinner } from 'react-bootstrap';
 
 const MangeProduct = () => {
     const [mobiles, setMobiles] = useState([]);
     function deleteProduct(id){
-       fetch(`http://localhost:5000/delete/${id}`, {
+       fetch(`https://mobile-house.herokuapp.com/delete/${id}`, {
            method:'DELETE'
        })
        .then(res => res.json())
@@ -17,7 +18,7 @@ const MangeProduct = () => {
     }
 
 
-    fetch('http://localhost:5000/mobiles')
+    fetch('https://mobile-house.herokuapp.com/mobiles')
     .then(res => res.json())
     .then(data => setMobiles(data));
 
@@ -25,6 +26,9 @@ const MangeProduct = () => {
        <div className="container">
            <div className="row mt-5">
                <div className="col-md-9 mx-auto ">
+               {mobiles.length?'':<div className="loader text-center">
+                    <Spinner animation="border" variant="success"/>
+                </div>}
                <div className="manageProduct d-flex justify-content-between">
                <h5>Manage Product</h5>
                <h5>Total Product({mobiles.length})</h5>

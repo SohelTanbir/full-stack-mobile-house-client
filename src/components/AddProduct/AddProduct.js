@@ -28,12 +28,12 @@ const AddProduct = () => {
         setAddProduct({...addProduct, mobileImg:response.data.data.display_url})
       })
       .catch(function (error) {
-        console.log(error);
+        
       });
         
     }
     const submitData = (event)=>{
-        const url = 'http://localhost:5000/addproduct';
+        const url = 'https://mobile-house.herokuapp.com/addproduct';
         fetch(url, {
             method:'POST',
             headers:{'content-type':'application/json'},

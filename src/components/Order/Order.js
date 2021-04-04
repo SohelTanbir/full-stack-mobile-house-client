@@ -7,7 +7,7 @@ const Order = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
     const [orders, setOrders] = useState([]);
         useEffect(()=>{
-            fetch('http://localhost:5000/orders?email='+ loggedInUser.email)
+            fetch('https://mobile-house.herokuapp.com/orders?email='+ loggedInUser.email)
         .then(res => res.json())
         .then(data => setOrders(data));
         }, [])
@@ -47,6 +47,7 @@ const Order = () => {
                         {orders.length?'':<div className="loader text-center">
                             <Spinner animation="border" variant="primary" />
                         </div>}
+                        {orders.length?'':<h4 className="text-center text-danger">No Order available!</h4>}
                </div>
            </div>
         </div>

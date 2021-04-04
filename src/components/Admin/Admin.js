@@ -11,7 +11,7 @@ const Admin = () => {
     return (
        <div className="container-fluid">
            <div className="row">
-               <div className="col-md-2 col-lg-3 bg-dark sidebar">
+               <div className="col-md-2 bg-dark sidebar">
                    <h5 className="text-white"><FontAwesomeIcon icon={faUsersCog} style={{ color: "white" }}/> Mobile <span>House</span></h5>
                    <ul>
                        <li>

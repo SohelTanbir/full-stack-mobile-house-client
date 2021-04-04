@@ -7,23 +7,12 @@ import './Home.css';
 const Home = () => {
     const [mobiles, setMobiles] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/mobiles')
+        fetch('https://mobile-house.herokuapp.com/mobiles')
         .then(res => res.json())
         .then(data => setMobiles(data))
     
        }, []);
-   
- 
 
-//    function spinner(){
-//     if(mobiles.length <= 1){
-//         document.getElementById("spinner").style.color ="red";
-//     }else{
-//         document.getElementById("spinner").style.color ="blue";
-//     }
-//    }
-
-//    spinner()
     return (
         <div className="home">
            <div className="container">
