@@ -5,7 +5,7 @@ import './Home.css';
 
 const Home = () => {
     const [mobiles, setMobiles] = useState([]);
-    fetch('https://mobile-house.herokuapp.com/mobiles')
+    fetch('http://localhost:5000/mobiles')
     .then(res => res.json())
     .then(data => setMobiles(data))
 

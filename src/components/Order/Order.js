@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 const Order = () => {
     const [orders, setOrders] = useState([]);
-        fetch('https://mobile-house.herokuapp.com/orders')
+        fetch('http://localhost:5000/orders')
         .then(res => res.json())
         .then(data => setOrders(data));
     return (
@@ -21,14 +21,14 @@ const Order = () => {
                                     <th>Product Name</th>
                                     <th>Price</th>
                                     <th>Quantity</th>
-                                    <th>Pay Status</th>
+                                    <th>Payment</th>
                                     <th>Date</th>
                                 </tr>
                           </thead>
                            {
                                orders.map(order => <tbody>
                                 <tr>
-                                    <td>1++</td>
+                                    <td>1</td>
                                     <td>{order.mobileName}</td>
                                     <td>${order.mobilePrice}</td>
                                     <td>1</td>

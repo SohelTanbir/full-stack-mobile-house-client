@@ -4,20 +4,23 @@ import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const MangeProduct = () => {
     const [mobiles, setMobiles] = useState([]);
-    fetch('https://mobile-house.herokuapp.com/mobiles')
+    function deleteProduct(id){
+       fetch(`http://localhost:5000/delete/${id}`, {
+           method:'DELETE'
+       })
+       .then(res => res.json())
+       .then(result =>{
+          if(result){
+              alert('Product deleted successfully!!')
+          }
+       })
+    }
+
+
+    fetch('http://localhost:5000/mobiles')
     .then(res => res.json())
     .then(data => setMobiles(data));
 
-    // delete product from database
-    const deleteProduct = _id =>{
-        fetch(`/delete/${_id}`, {
-            method:'DELETE'
-        })
-        .then(res => res.json())
-        .then(result =>{
-            console.log(result)
-        })
-     }
     return (
        <div className="container">
            <div className="row mt-5">
