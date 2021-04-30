@@ -6,13 +6,18 @@ version:1.0,
 author:Sohel Rana,
 
 # available Features
-1.Hight Quality Authentication System.
-2.Dynamic Website.
-3.All data is Dynamic.
-4.Interactive Admin Panel.
-5.Add New Product.
-6.Manage Product.
-7.Delete Product.
+1.admin can add product
+2.admin can delete product
+3.admin can update product
+4.Hight Quality Authentication System.
+5.user can buy product
+6.user can login with Google account
+7.Dynamic Website.
+8.All data is Dynamic.
+9.Interactive Admin Panel.
+10.Add New Product.
+11.Manage Product.
+12.Delete Product.
 
 # Short Description:
 This is a Online Mobile shop website.anyone can buy any kind of mobile phone from the website at low price.Take online service make easy your Life.
